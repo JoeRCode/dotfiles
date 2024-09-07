@@ -4,12 +4,19 @@
 --
 --
 -- Telescope
-vim.keymap.set("n", "<leader>fs", "<cmd> Telescope symbols<cr>", { desc = "Find Symbols/Smileys" })
+--
+--
+vim.keymap.set("n", "<leader>fs", "<cmd> Telescope symbols<CR>", { desc = "Find Symbols/Smileys" })
+
+vim.keymap.set("n", "<leader>flg", "<cmd> Telescope live_grep<CR>", {})
 
 -- toggle Neotree on right side
+--
+--
 vim.keymap.set("n", "<C-n>", ":Neotree toggle filesystem reveal right<CR>", { desc = "toggle Neotree on right side" })
 
 -- tmux navigator
+--
 --
 vim.keymap.set("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", { desc = "Navigate to left Window" })
 
