@@ -8,3 +8,13 @@ vim.keymap.set("n", "<leader>fs", "<cmd> Telescope symbols<cr>", { desc = "Find 
 
 -- toggle Neotree on right side
 vim.keymap.set("n", "<C-n>", ":Neotree toggle filesystem reveal right<CR>", { desc = "toggle Neotree on right side" })
+
+-- tmux navigator
+--
+vim.keymap.set("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", { desc = "Navigate to left Window" })
+
+vim.keymap.set("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>", { desc = "Navigate to right Window" })
+
+vim.keymap.set("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>", { desc = "Navigate to down Window" })
+
+vim.keymap.set("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>", { desc = "Navigate to up Window" })
