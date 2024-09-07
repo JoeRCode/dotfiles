@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 --
 --
--- Telescope Symbols
+-- Telescope
 vim.keymap.set("n", "<leader>fs", "<cmd> Telescope symbols<cr>", { desc = "Find Symbols/Smileys" })
 
 -- toggle Neotree on right side
