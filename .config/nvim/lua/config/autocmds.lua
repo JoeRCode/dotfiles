@@ -10,3 +10,8 @@ vim.api.nvim_create_autocmd("FileType", {
     require("cmp").setup({ enabled = false })
   end,
 })
+
+vim.api.nvim_create_autocmd("filetype", {
+  pattern = { "markdown" },
+  command = "set nospell",
+})
