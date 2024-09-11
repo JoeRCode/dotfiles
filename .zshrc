@@ -74,31 +74,79 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+############################### User configuration ##################################
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# Set editing mode
+set -o vi
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export VISUAL=nvim
+export EDITOR=nvim
+export TERM="tmux-256color"
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
+export BROWSER="chromium"
 
-# Compilation flags
-# export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
+# directories
+export SCRIPTS="$HOME/Scripts/"
+export DOTFILES="$HOME/Dotfiles/"
+
+# aliases
+alias nv="nvim"
+alias vim="vim"
+alias vi="nvim"
+
+alias scripts="cd $DOTFILES/Scripts/"
+alias dotf="cd $DOTFILES"
+
+
+alias cls="clear"
+alias cl="clear"
+
+# Scripts aliases
+alias mypath="$SCRIPTS/path.sh"
+
+# git aliases
+alias gp="git pull"
+alias gs="git status"
+alias ga="git add ."
+
+
+
+# EXTENDED_GLOB
+# Treat the ‘#’, ‘~’ and ‘^’ characters as part of patterns for filename generation,
+# etc. (An initial unquoted ‘~’ always produces named directory expansion.)
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# NULL_GLOB
+# If a pattern for filename generation has no matches, delete the pattern from the
+# argument list; do not report an error unless all the patterns in a command have
+# no matches. Overrides NOMATCH.
+#
+setopt EXTENDED_GLOB NULL_GLOB
+
+path=(
+    $path                           # Keep existing PATH entries
+    $HOME/bin
+    $HOME/.local/bin
+    $SCRIPTS
+)
+
+# Remove duplicate entries and non-existent directories
+typeset -U path
+path=($^path(N-/))
+
+export PATH
+
+# Shell History
+
+HISTFILE=~/.zsh_history   # Location of file
+HISTSIZE=100000           # History Size 100000 lines
+SAVEHIST=100000           # 
+
+setopt HIST_IGNORE_SPACE  # Don't save when prefixed with space
+setopt HIST_IGNORE_DUPS   # Don't save duplicate lines
+setopt SHARE_HISTORY      # Share history between sessions
+
+# enable fzf-keybindings for zsh
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+
+echo ".zshrc loaded"
