@@ -10,4 +10,4 @@ I use the FiraMono Nerd Font, you can download them here:\
 
 **Colors:**\
 For the terminal color pallette i use XTerm, but i change P4 to #00CDCD
-and p6 to #0F00CD.
+and p6 to #CDAC00.
