@@ -148,5 +148,3 @@ setopt SHARE_HISTORY      # Share history between sessions
 
 # enable fzf-keybindings for zsh
 source /usr/share/doc/fzf/examples/key-bindings.zsh
-
-echo ".zshrc loaded"
