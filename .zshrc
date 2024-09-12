@@ -89,6 +89,7 @@ export BROWSER="chromium"
 # directories
 export SCRIPTS="$HOME/Scripts/"
 export DOTFILES="$HOME/Dotfiles/"
+export NOTES="$HOME/Notes/"
 
 # aliases
 alias nv="nvim"
@@ -104,13 +105,12 @@ alias cl="clear"
 
 # Scripts aliases
 alias mypath="$SCRIPTS/path.sh"
+alias todo="$SCRIPTS/notes.sh"
 
 # git aliases
 alias gp="git pull"
 alias gs="git status"
 alias ga="git add ."
-
-
 
 # EXTENDED_GLOB
 # Treat the ‘#’, ‘~’ and ‘^’ characters as part of patterns for filename generation,
