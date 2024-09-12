@@ -98,7 +98,7 @@ alias vi="nvim"
 
 alias scripts="cd $DOTFILES/Scripts/"
 alias dotf="cd $DOTFILES"
-
+alias notes="cd $HOME/Notes/"
 
 alias cls="clear"
 alias cl="clear"
