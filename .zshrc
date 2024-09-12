@@ -106,6 +106,7 @@ alias cfg="cd $DOTFILES/.config/"
 # Scripts aliases
 alias mypath="$SCRIPTS/path.sh"
 alias todo="$SCRIPTS/notes.sh"
+alias gc="$SCRIPTS/gitcommit.sh"
 
 # git aliases
 alias gp="git pull"
