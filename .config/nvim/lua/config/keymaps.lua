@@ -29,3 +29,8 @@ vim.keymap.set("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>", { desc = "Navigate t
 vim.keymap.set("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>", { desc = "Navigate to down Window" })
 
 vim.keymap.set("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>", { desc = "Navigate to up Window" })
+
+-- lsp
+vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
+vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
+vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
