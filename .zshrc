@@ -94,13 +94,14 @@ export NOTES="$HOME/Notes/"
 # aliases
 alias nv="nvim"
 alias vim="nvim"
+alias cls="clear"
+alias cl="clear"
 
+# cd aliases
 alias scripts="cd $DOTFILES/Scripts/"
 alias dotf="cd $DOTFILES"
 alias notes="cd $HOME/Notes/"
-
-alias cls="clear"
-alias cl="clear"
+alias cfg="cd $DOTFILES/.config/"
 
 # Scripts aliases
 alias mypath="$SCRIPTS/path.sh"
