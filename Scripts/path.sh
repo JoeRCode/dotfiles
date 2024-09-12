@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# Prints out the $PATH variable, each entry has is displayed in a new line
+# Prints out the $PATH variable,so each entry is displayed on a new line
 
 echo -e ${PATH//:/\\n}
