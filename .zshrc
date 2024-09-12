@@ -93,8 +93,7 @@ export NOTES="$HOME/Notes/"
 
 # aliases
 alias nv="nvim"
-alias vim="vim"
-alias vi="nvim"
+alias vim="nvim"
 
 alias scripts="cd $DOTFILES/Scripts/"
 alias dotf="cd $DOTFILES"
