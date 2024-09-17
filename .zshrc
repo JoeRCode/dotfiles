@@ -96,6 +96,8 @@ alias nv="nvim"
 alias vim="nvim"
 alias cls="clear"
 alias cl="clear"
+alias t="tmux"
+alias lg="lazygit"
 
 # cd aliases
 alias scripts="cd $DOTFILES/Scripts/"
