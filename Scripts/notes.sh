@@ -31,10 +31,10 @@ open_file() {
     echo "Links:"
     echo -en "\n"
     echo "$timestamp"
-  } >>"$1/$filename.md"
+  } >>"$1/$filename-$day.md"
 
   # Open the file in Neovim
-  nvim '+ normal ggzzi' "$1/$filename.md"
+  nvim '+ normal ggzzi' "$1/$filename-$day.md"
 }
 
 ### Script Start ###
