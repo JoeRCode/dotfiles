@@ -98,6 +98,7 @@ alias cls="clear"
 alias cl="clear"
 alias t="tmux"
 alias lg="lazygit"
+alias kct="kubectl"
 
 # cd aliases
 alias scripts="cd $DOTFILES/Scripts/"
