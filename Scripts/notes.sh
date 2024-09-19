@@ -13,25 +13,31 @@ get_filename() {
 # function to create and open a file in the specified directory
 open_file() {
 
+  # Get the current date
   day="$(date -I)"
-  # Cd into the directory
-  cd "$1" || exit
-  # Create the file in the specified directory
-  touch "$1/$filename-$day.md"
 
   # create unique identifier and links section
   timestamp="$(date +"%F_%T")"
 
-  # format the file
-  {
-    echo "# $filename"
-    echo -en "\n"
-    echo -en "\n"
-    echo -en "\n"
-    echo "Links:"
-    echo -en "\n"
-    echo "$timestamp"
-  } >>"$1/$filename-$day.md"
+  # Cd into the directory
+  cd "$1" || exit
+
+  # Check if file is already existing
+  if [[ ! -f "$1/$filename-$day.md" ]]; then
+    # Create the file in the specified directory
+    touch "$1/$filename-$day.md"
+
+    # format the file
+    {
+      echo "# $filename"
+      echo -en "\n"
+      echo -en "\n"
+      echo -en "\n"
+      echo "Links:"
+      echo -en "\n"
+      echo "$timestamp"
+    } >>"$1/$filename-$day.md"
+  fi
 
   # Open the file in Neovim
   nvim '+ normal ggzzi' "$1/$filename-$day.md"
