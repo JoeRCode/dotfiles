@@ -1,4 +1,4 @@
--- bg color is #161616 (for terminal)
+-- bg color is #262626 (for terminal)
 return {
   { "EdenEast/nightfox.nvim" },
   {
