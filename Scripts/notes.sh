@@ -4,6 +4,20 @@
 
 # functions
 
+# function to check if the directories exist
+check_directories() {
+  # Notes directory - if it doesnt create both directories
+  if [[ ! -d "$HOME/Notes" ]]; then
+    mkdir "$HOME/Notes"
+    mkdir "$HOME/Notes/todos"
+    return
+  fi
+  # todo directory
+  if [[ ! -d "$HOME/Notes/todos" ]]; then
+    mkdir "$HOME/Notes/todos"
+  fi
+}
+
 # function to prompt the user for a filename
 get_filename() {
   read -p "Enter a filename: " filename
@@ -45,6 +59,9 @@ open_file() {
 
 ### Script Start ###
 
+# checking for existing directories
+check_directories
+
 # Prompt the user if no filename is provided
 if [[ $# -eq 0 ]]; then
   filename=$(get_filename)
@@ -62,5 +79,11 @@ if [[ $# -eq 1 ]]; then
   filename=$1
 fi
 
-# call the function with the directory as parameter
-open_file "$HOME/Notes/"
+# check if its a todo or note
+if [[ $filename == "todo" ]]; then
+  # call the function with the directory as parameter
+  open_file "$HOME/Notes/todos/"
+else
+  # call the function with the directory as parameter
+  open_file "$HOME/Notes/"
+fi
