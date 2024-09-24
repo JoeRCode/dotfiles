@@ -125,6 +125,7 @@ alias gc="$SCRIPTS/gitcommit.sh"
 alias gp="git pull"
 alias gs="git status"
 alias ga="git add ."
+alias diff="git diff"
 
 # EXTENDED_GLOB
 # Treat the ‘#’, ‘~’ and ‘^’ characters as part of patterns for filename generation,
