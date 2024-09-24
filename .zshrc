@@ -90,6 +90,8 @@ export BROWSER="chromium"
 export SCRIPTS="$HOME/Scripts/"
 export DOTFILES="$HOME/Dotfiles/"
 export NOTES="$HOME/Notes/"
+export PROJECTS="$HOME/Projects/"
+
 
 # aliases
 alias nv="nvim"
@@ -105,12 +107,14 @@ alias kct="kubectl"
 alias notesl="la $NOTES"
 alias dotfl="la $DOTFILES"
 alias scriptsl="la $SCRIPTS"
+alias projectsl="la $PROJECTS"
 
 # cd aliases
 alias scripts="cd $DOTFILES/Scripts/"
 alias dotf="cd $DOTFILES"
-alias notes="cd $HOME/Notes/"
+alias notes="cd $NOTES"
 alias cfg="cd $DOTFILES/.config/"
+alias project="cd $PROJECTS"
 
 # Scripts aliases
 alias mypath="$SCRIPTS/path.sh"
