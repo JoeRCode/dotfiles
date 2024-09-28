@@ -120,6 +120,10 @@ alias project="cd $PROJECTS"
 alias mypath="$SCRIPTS/path.sh"
 alias todo="$SCRIPTS/notes.sh"
 alias gc="$SCRIPTS/gitcommit.sh"
+alias setdpi="$SCRIPTS/setdpi.sh"
+
+# script calls
+setdpi
 
 # git aliases
 alias gp="git pull"
