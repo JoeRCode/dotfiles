@@ -1,171 +1,104 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-# Path to your Oh My Zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time Oh My Zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="simple"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# history setup
+HISTFILE=$HOME/.zhistory
+SAVEHIST=1000
+HISTSIZE=999
+setopt share_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_verify
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# completion using arrow keys (based on history)
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+# fnm environment variable for zsh usage
+eval "$(fnm env --use-on-cd --shell zsh)"
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
-############################### User configuration ##################################
-
-# Set editing mode
-set -o vi
-
-export VISUAL=nvim
-export EDITOR=nvim
-export TERM="tmux-256color"
-
-export BROWSER="chromium"
-
+# set default browser to brave
+export BROWSER="/usr/bin/brave"
 
 # directories
-export SCRIPTS="$HOME/Scripts/"
-export DOTFILES="$HOME/Dotfiles/"
-export NOTES="$HOME/Notes/"
-export PROJECTS="$HOME/Projects/"
+export NOTES="$HOME/notes"
+export CFG="$HOME/.config"
+export SCRIPTS="$HOME/scripts"
+export PROJECTS="$HOME/projects/"
 
+# projekte
+export ARTICLEDETAIL="$PROJECTS/article-detail-ui-spryker/"
+export COMPARISON="$PROJECTS/comparison-ui/"
+export HBRC="$PROJECTS/hb-react-components/"
+export LISTING="$PROJECTS/listing-ui/"
+export WISHLIST="$PROJECTS/wishlist-ui/"
+export HEADER="$PROJECTS/header/"
+export CURBSIDE="$PROJECTS/curbside-ui/"
+export CART="$PROJECTS/cart-ui/"
+export RECO="$PROJECTS/reco-ui/"
 
 # aliases
 alias nv="nvim"
-alias vim="nvim"
-
 alias cls="clear"
-alias cl="clear"
+alias oldvim="/usr/bin/vim"
+alias vim="/opt/homebrew/bin/nvim"
+alias pn="pnpm"
 
+# for terminal applications
 alias t="tmux"
 alias lg="lazygit"
-alias kct="kubectl"
-
-alias ls="lsd -lah"
-
-alias notesl="la $NOTES"
-alias dotfl="la $DOTFILES"
-alias scriptsl="la $SCRIPTS"
-alias projectsl="la $PROJECTS"
-
-# cd aliases
-alias scripts="cd $DOTFILES/Scripts/"
-alias dotf="cd $DOTFILES"
-alias notes="cd $NOTES"
-alias cfg="cd $DOTFILES/.config/"
-alias project="cd $PROJECTS"
-
-# Scripts aliases
-alias mypath="$SCRIPTS/path.sh"
-alias todo="$SCRIPTS/notes.sh"
-alias gc="$SCRIPTS/gitcommit.sh"
-alias setdpi="$SCRIPTS/setdpi.sh"
-
-# script calls
-setdpi
 
 # git aliases
-alias gp="git pull"
-alias gs="git status"
-alias ga="git add ."
-alias diff="git diff"
+alias gcd="git checkout develop"
 
-# EXTENDED_GLOB
-# Treat the ‘#’, ‘~’ and ‘^’ characters as part of patterns for filename generation,
-# etc. (An initial unquoted ‘~’ always produces named directory expansion.)
-#
-# NULL_GLOB
-# If a pattern for filename generation has no matches, delete the pattern from the
-# argument list; do not report an error unless all the patterns in a command have
-# no matches. Overrides NOMATCH.
-#
-setopt EXTENDED_GLOB NULL_GLOB
+# ls
+alias ls="lsd -lah"
 
-path=(
-    $path                           # Keep existing PATH entries
-    $HOME/bin
-    $HOME/.local/bin
-    $SCRIPTS
-)
+# ls for directories
+alias notesls="ls $NOTES"
+alias cfgls="ls $CFG"
+alias scriptsls="ls $SCRIPTS"
+alias projls="ls $PROJECTS"
 
-# Remove duplicate entries and non-existent directories
-typeset -U path
-path=($^path(N-/))
+# scripts
+alias tkt='$SCRIPTS/jiraticket.sh'
 
-export PATH
+# cd
+alias cfg="cd $CFG"
+alias notes="cd $NOTES"
+alias scripts="cd $SCRIPTS"
+alias proj="cd $PROJECTS"
+alias art="cd $ARTICLEDETAIL"
+alias comp="cd $COMPARISON"
+alias hbrc="cd $HBRC"
+alias listing="cd $LISTING"
+alias wishl="cd $WISHLIST"
+alias header="cd $HEADER"
+alias curb="cd $CURBSIDE"
+alias cart="cd $CART"
+alias reco="cd $RECO"
 
-# Shell History
+# Auto-start tmux in interactive Zsh sessions (WezTerm, VSCode, etc.)
+if command -v tmux >/dev/null 2>&1; then
+  if [[ -z "$TMUX" ]] && [[ -z "$ZSH_TMUX_AUTOSTARTED" ]] && [[ $- == *i* ]]; then
+    export ZSH_TMUX_AUTOSTARTED=1
+    exec tmux new-session -A -s main
+  fi
+fi
 
-HISTFILE=~/.zsh_history   # Location of file
-HISTSIZE=100000           # History Size 100000 lines
-SAVEHIST=100000           # 
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 
-setopt HIST_IGNORE_SPACE  # Don't save when prefixed with space
-setopt HIST_IGNORE_DUPS   # Don't save duplicate lines
-setopt SHARE_HISTORY      # Share history between sessions
-
-# enable fzf-keybindings for zsh
-source /usr/share/doc/fzf/examples/key-bindings.zsh
+export NODE_EXTRA_CA_CERTS="/etc/ssl/certs/hb_ca_chain.pem"
+export NODE_EXTRA_CA_CERTS="/etc/ssl/certs/hb_ca_chain.pem"
