@@ -104,6 +104,8 @@ alias t="tmux"
 alias lg="lazygit"
 alias kct="kubectl"
 
+alias ls="lsd -lah"
+
 alias notesl="la $NOTES"
 alias dotfl="la $DOTFILES"
 alias scriptsl="la $SCRIPTS"

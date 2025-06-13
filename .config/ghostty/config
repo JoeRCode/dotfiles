@@ -1,0 +1,4 @@
+theme = carbonfox
+# font-family =
+font-size = 16
+gtk-titlebar = false
